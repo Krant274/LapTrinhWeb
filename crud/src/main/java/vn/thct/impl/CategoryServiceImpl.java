@@ -31,8 +31,9 @@ public class CategoryServiceImpl implements ICategoryService {
 	@Override
 	public void update(CategoryModel category) {
 		CategoryModel cate = new CategoryModel();
-		cate = cateDao.findById(cate.getCategoryid());
+		cate = cateDao.findById(category.getCategoryid());
 		if (cate != null) {
+			
 			cateDao.update(category);
 		}
 

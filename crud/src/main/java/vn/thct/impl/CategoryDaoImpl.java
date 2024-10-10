@@ -49,6 +49,7 @@ public class CategoryDaoImpl implements ICategoryDao {
 		try {
 			conn = new DBConnection().getConnection();
 			ps = conn.prepareStatement(sql);
+			ps.setInt(1, id); 
 			rs = ps.executeQuery();
 
 			while (rs.next()) {

@@ -35,6 +35,9 @@ public class CategoryController extends HttpServlet {
 			req.getRequestDispatcher("/views/admin/category-add.jsp").forward(req, resp);
 		}
 		else if(url.contains("edit") ) {
+			int id = Integer.parseInt(req.getParameter("id"));
+			CategoryModel category = cateService.findById(id);
+			req.setAttribute("cate", category);
 			req.getRequestDispatcher("/views/admin/category-edit.jsp").forward(req, resp);
 		}
 		
@@ -55,6 +58,21 @@ public class CategoryController extends HttpServlet {
 			category.setImages(images);
 			category.setStatus(statuss);
 			cateService.insert(category);
+			resp.sendRedirect(req.getContextPath() + "/admin/categories");
+		}
+		else if (url.contains("update")){
+			int categoryid = Integer.parseInt(req.getParameter("categoryid"));
+			String categoryname = req.getParameter("categoryname");
+			String status = req.getParameter("status");
+			int statuss = Integer.parseInt(status);
+			String images ="https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/t/e/text_ng_n_7__2_102.png";
+			CategoryModel category = new CategoryModel();
+			category.setCategoryid(categoryid);
+			category.setCategoryname(categoryname);
+			category.setImages(images);
+			category.setStatus(statuss);
+			
+			cateService.update(category);
 			resp.sendRedirect(req.getContextPath() + "/admin/categories");
 		}
 		
