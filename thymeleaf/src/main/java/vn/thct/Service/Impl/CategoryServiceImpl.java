@@ -3,7 +3,7 @@ package vn.thct.Service.Impl;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.util.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
@@ -87,5 +87,35 @@ public class CategoryServiceImpl implements ICategoryService {
 	@Override
 	public void deleteById(Long id) {
 		categoryRepository.deleteById(id);
+	}
+
+	@Override
+	public void deleteAll() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(CategoryEntity entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Optional<CategoryEntity> findById(long id) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
+	}
+
+	@Override
+	public List<CategoryEntity> findByNameContaining(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Optional<CategoryEntity> findByName(String name) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
 	}
 }

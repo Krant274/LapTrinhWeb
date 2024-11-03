@@ -22,6 +22,15 @@ public class CategoryEntity implements Serializable {
 	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
 	private Set<ProductEntity> products;
 
+	public CategoryEntity() {
+	}
+
+	public CategoryEntity(Long categoryId, String name, Set<ProductEntity> products) {
+		this.categoryId = categoryId;
+		this.name = name;
+		this.products = products;
+	}
+
 	public Long getCategoryId() {
 		return categoryId;
 	}
@@ -37,6 +46,13 @@ public class CategoryEntity implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
+
+	public Set<ProductEntity> getProducts() {
+		return products;
+	}
+
+	public void setProducts(Set<ProductEntity> products) {
+		this.products = products;
+	}
+
 }

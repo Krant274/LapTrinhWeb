@@ -10,6 +10,14 @@ import org.springframework.data.domain.Sort;
 import vn.thct.Entity.CategoryEntity;
 
 public interface ICategoryService {
+	void deleteAll();
+
+	void delete(CategoryEntity entity);
+
+	void deleteById(Long id);
+
+	Optional<CategoryEntity> findById(long id);
+
 	<S extends CategoryEntity> S save(S entity);
 
 	List<CategoryEntity> findAll();
@@ -24,9 +32,11 @@ public interface ICategoryService {
 
 	<S extends CategoryEntity> Optional<S> findOne(Example<S> example);
 
-	void deleteById(Long id);
+	List<CategoryEntity> findByNameContaining(String name);
 
 	Page<CategoryEntity> findByNameContaining(String name, Pageable pageable);
+
+	Optional<CategoryEntity> findByName(String name);
 
 	long count();
 }

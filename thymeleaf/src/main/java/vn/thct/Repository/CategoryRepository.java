@@ -1,6 +1,7 @@
 package vn.thct.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,5 +17,6 @@ public interface CategoryRepository extends JpaRepository<CategoryEntity, Long> 
 
 //Tàm kiếm và Phân trang
 	Page<CategoryEntity> findByNameContaining(String name, Pageable pageable);
+	Optional<CategoryEntity> findByName(String name);
 	
 }
