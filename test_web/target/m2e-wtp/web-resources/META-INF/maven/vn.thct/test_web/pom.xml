@@ -70,8 +70,18 @@
 		    <version>3.2.1</version>
 		</dependency>
 
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.4</version>
+		</dependency>
 
-	</dependencies>
+		<dependency>
+			<groupId>crud</groupId>
+			<artifactId>crud</artifactId>
+			<version>1.0</version>
+		</dependency>
+  </dependencies>
 
 	<build>
 		<pluginManagement>
