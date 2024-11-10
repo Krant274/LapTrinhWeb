@@ -2,57 +2,58 @@ package vn.thct.Entity;
 
 import java.io.Serializable;
 import java.util.Set;
-
 import jakarta.persistence.*;
-import lombok.*;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table(name = "Categories")
 public class CategoryEntity implements Serializable {
-	private static final long serialVersionUID = 1L;
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long categoryId;
-	@Column(name = "category_name", length = 200, columnDefinition = "nvarchar(200) not null")
-	private String name;
+    private static final long serialVersionUID = 1L;
 
-	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
-	private Set<ProductEntity> products;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long categoryId;
 
-	public CategoryEntity() {
-	}
+    @Column(name = "category_name", length = 200, columnDefinition = "nvarchar(200) not null")
+    private String name;
 
-	public CategoryEntity(Long categoryId, String name, Set<ProductEntity> products) {
-		this.categoryId = categoryId;
-		this.name = name;
-		this.products = products;
-	}
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    private Set<ProductEntity> products;
 
-	public Long getCategoryId() {
-		return categoryId;
-	}
+    // No-argument constructor
+    public CategoryEntity() {
+    }
 
-	public void setCategoryId(Long categoryId) {
-		this.categoryId = categoryId;
-	}
+    // All-argument constructor
+    public CategoryEntity(Long categoryId, String name, Set<ProductEntity> products) {
+        this.categoryId = categoryId;
+        this.name = name;
+        this.products = products;
+    }
 
-	public String getName() {
-		return name;
-	}
+    // Getters and Setters
+    public Long getCategoryId() {
+        return categoryId;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
+    }
 
-	public Set<ProductEntity> getProducts() {
-		return products;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setProducts(Set<ProductEntity> products) {
-		this.products = products;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
+    public Set<ProductEntity> getProducts() {
+        return products;
+    }
+
+    public void setProducts(Set<ProductEntity> products) {
+        this.products = products;
+    }
+
+    // Optional: Override toString, equals, and hashCode methods if needed
 }

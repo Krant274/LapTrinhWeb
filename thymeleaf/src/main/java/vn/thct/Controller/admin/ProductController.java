@@ -17,7 +17,7 @@ import vn.thct.Service.IProductService;
 import vn.thct.Service.IStorageService;
 
 @Controller
-@RequestMapping("admin/products")
+@RequestMapping("/admin/products")
 public class ProductController {
 	@Autowired
 	ICategoryService categoryService;

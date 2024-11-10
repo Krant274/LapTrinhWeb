@@ -1,10 +1,8 @@
 package vn.thct.Entity;
 
 import java.io.Serializable;
-import java.util.Set;
+import java.util.Date;
 
-import jakarta.annotation.Generated;
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,48 +10,49 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
-import jakarta.persistence.criteria.Order;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+
 @Entity
 @Table(name = "Products")
 public class ProductEntity implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long productId;
-	@Column(name = "product_name", length = 500, columnDefinition = "nvarchar(50) not null")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long productId;
 
-	private String name;
-	@Column(nullable = false)
-	private int quantity;
-	@Column(nullable = false)
-	private double unitPrice;
-	@Column(length = 200)
-	private String images;
-	@Column(columnDefinition = "nvarchar(500) not null")
-	private String description;
-	@Column(nullable = false)
-	private double discount;
-	@Temporal(TemporalType.DATE)
-	private Data createDate;
-	@Column(nullable = false)
-	private short status;
+    @Column(name = "product_name", length = 500, columnDefinition = "nvarchar(50) not null")
+    private String name;
 
-	@ManyToOne
-	@JoinColumn(name = "categoryId")
-	private CategoryEntity category;
+    @Column(nullable = false)
+    private int quantity;
+
+    @Column(nullable = false)
+    private double unitPrice;
+
+    @Column(length = 200)
+    private String images;
+
+    @Column(columnDefinition = "nvarchar(500) not null")
+    private String description;
+
+    @Column(nullable = false)
+    private double discount;
+
+    @Temporal(TemporalType.DATE)
+    private Date createDate; // Explicit data type for createDate
+
+    @Column(nullable = false)
+    private short status;
+
+    @ManyToOne
+    @JoinColumn(name = "categoryId")
+    private CategoryEntity category;
 
 	public Long getProductId() {
 		return productId;
@@ -111,11 +110,11 @@ public class ProductEntity implements Serializable {
 		this.discount = discount;
 	}
 
-	public Data getCreateDate() {
+	public Date getCreateDate() {
 		return createDate;
 	}
 
-	public void setCreateDate(Data createDate) {
+	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
 

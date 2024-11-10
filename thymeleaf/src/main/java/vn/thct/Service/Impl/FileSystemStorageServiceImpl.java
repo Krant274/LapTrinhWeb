@@ -9,11 +9,13 @@ import java.nio.file.StandardCopyOption;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import vn.thct.Config.StorageProperties;
 import vn.thct.Exception.StorageException;
 import vn.thct.Service.IStorageService;
 
+@Service
 public class FileSystemStorageServiceImpl implements IStorageService {
 
 	private final Path rootLocation;

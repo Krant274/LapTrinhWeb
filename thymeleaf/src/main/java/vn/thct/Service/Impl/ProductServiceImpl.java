@@ -9,14 +9,17 @@ import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
+
 import vn.thct.Entity.ProductEntity;
 import vn.thct.Repository.ProductRepository;
 import vn.thct.Service.IProductService;
 
+@Service
 public class ProductServiceImpl implements IProductService {
 
 	@Autowired
-	ProductRepository productRepository;
+	private ProductRepository productRepository;
 	
 	public ProductServiceImpl(ProductRepository productRepository) {
 		this.productRepository = productRepository;
